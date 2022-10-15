@@ -95,3 +95,7 @@ article{
 .place{
     margin-top: 60px;
 }
+button:hover {
+    background-color:dodgerblue;
+    cursor:pointer;
+  }
