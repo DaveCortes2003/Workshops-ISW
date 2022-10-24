@@ -3,7 +3,7 @@ div{
     border-color: white;
 }
 
-@media screen and (max-width: 936px) and (min-width: 936px) {
+@media screen and (width: 936px) {
     div{
         text-align: center;
     }
@@ -52,7 +52,7 @@ div{
     }
 }
 
-@media screen and (max-width: 600px) and (min-width:600px) {
+@media screen and (width: 600px) {
     .div1{
         width: 100%;
         background-color: yellow;
