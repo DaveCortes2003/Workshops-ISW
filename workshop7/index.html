@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Workshop7</title>
+    <link rel="stylesheet" href="/workshop7/style.css">
+</head>
+<body>
+    <div class="div1">
+        <div class="div2">
+            <form id="book-form">
+                <h3>Ingrese sus Datos</h3>
+                <label for="editTitle">Nombre</label>
+                <input type="text" name="name" value=""  class="required" id="name" />
+                <br>
+                <label for="editAutor">Apellido</label>
+                <input type="text" name="lastName" value=""  class="required" id="lastName" />
+                <br>
+                <label for="num">Numero de Telefono</label>
+                <input type="text" name="cellphone" value=""  class="required" id="cellphone" />
+                <br>
+                <input type="hidden" name="id" value="" id="editId" />
+                <input type="button" value="Guardar" id="save-book-button" />
+            </form>
+        </div>
+    </div>
+    <script src="/workshop7/script.js" type="text/javascript"></script>
+</body>
+</html>
