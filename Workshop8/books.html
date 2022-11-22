@@ -9,7 +9,6 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/template.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -45,13 +44,35 @@
           row += `<td>${book.id}</td>`;
           row += `<td>${book.name}</td>`;
           row += `<td>${book.author}</td>`;
-          row += `<td> <a onclick="editBook(${book.id})" class="link edit" href="#">Edit</a>  |  <a  onclick="deleteBook(${book.id});" class="link delete" href="#">Delete</a>  </td>`;
+          row += `<td> <a onclick="editBook(${book.id})" class="link edit" href="#">Edit</a>  |  <a  onclick="deleteBook(${book.id});" class="delete" href="#">Delete</a>  </td>`;
           rows += row + "</tr>";
         });
         table.innerHTML = rows;
       }
 
     }
+    function deleteBook(a){
+      let indice=0;
+      let contador=0;
+      let booksDb = JSON.parse(localStorage.getItem('books'));
+      booksDb.forEach((book)=>{
+        if(book.id == a){
+          indice=contador;
+        }
+        contador=contador+1;
+      });
+
+      delete booksDb[indice];
+
+      localStorage.setItem('books', JSON.stringify(booksDb.filter(book=>book !=null)));
+      // //reload the book list
+      // showListOfBooks();
+      console.log(JSON.parse(localStorage.getItem('books')));
+      window.location.href = 'books.html';
+    }
+
+    
+
     showListOfBooks();
   </script>
 </body>

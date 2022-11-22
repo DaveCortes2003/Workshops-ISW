@@ -44,13 +44,34 @@
           row += `<td>${book.id}</td>`;
           row += `<td>${book.name}</td>`;
           // row += `<td>${book.author}</td>`;
-          row += `<td> <a onclick="editBook(${book.id})" class="link edit">Edit</a>  |  <a  onclick="deleteBook(${book.id});" class="link delete">Delete</a>  </td>`;
+          row += `<td> <a onclick="editBook(${book.id})" class="link edit" href="#">Edit</a>  |  <a  onclick="deleteAuthors(${book.id});" class="delete" href="#">Delete</a>  </td>`;
           rows += row + "</tr>";
         });
         table.innerHTML = rows;
       }
 
     }
+
+    function deleteAuthors(a){
+      let indice=0;
+      let contador=0;
+      let booksDb = JSON.parse(localStorage.getItem('authors'));
+      booksDb.forEach((book)=>{
+        if(book.id == a){
+          indice=contador;
+        }
+        contador=contador+1;
+      });
+
+      delete booksDb[indice];
+
+      localStorage.setItem('authors', JSON.stringify(booksDb.filter(book=>book !=null)));
+      // //reload the book list
+      // showListOfBooks();
+      console.log(JSON.parse(localStorage.getItem('books')));
+      window.location.href = 'authors.html';
+    }
+
     showListOfBooks();
   </script>
 </body>

@@ -33,13 +33,17 @@
       const bookName = $('#name').val();
 
       //insert to a database
+      let indi=1;
       let booksDb = JSON.parse(localStorage.getItem('authors'));
       if(!booksDb) {
         booksDb = [];
       }
+      else{
+        indi=booksDb[booksDb.length-1].id+1
+      }
       const book = {
         name: bookName,
-        id: booksDb.length + 1
+        id: indi
       }
       booksDb.push(book);
       localStorage.setItem('authors', JSON.stringify(booksDb));
